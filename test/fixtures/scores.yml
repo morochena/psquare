@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  impact_score: 1
+  effort_score: 1
+  username: MyString
+
+two:
+  impact_score: 1
+  effort_score: 1
+  username: MyString

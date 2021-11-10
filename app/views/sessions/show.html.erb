@@ -1,0 +1,51 @@
+<%= turbo_stream_from @session.id, :projects %>
+<% 
+Chartkick.options = {
+  height: "400px",
+  width: "400px",
+  colors: ["#b00", "#666"]
+}
+%>
+<div class="wrapper" data-controller="project" data-project-index-value="1">
+  <div id="content">
+    <h1 class="text-center"><%= @session.name %></h1>
+    <%= scatter_chart [[1,2], [2,3]], 
+  xtitle: "Effort", 
+  ytitle: "Impact",
+  min: 0,
+  max: 5,
+  xmin: 0,
+  xmax: 5  
+%>
+    <hr>
+    <%= render 'sessions/current_project_form', current_project: @current_project %>
+  </div>
+  <div id="sidebar">
+    <h4>Projects</h4>
+    <ul class="list-group">
+      <%= turbo_frame_tag :projects do %>
+        <%= render @projects %>
+      <% end %>
+    </ul>
+    <%= turbo_frame_tag :project_form do %>
+      <%= render 'projects/form', project: @project %>
+    <% end %>
+  </div>
+</div>
+<div id="usernameModal" class="modal" tabindex="-1" role="dialog" data-controller="hello">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Set Username</h5>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <input class="form-control" data-hello-target="username"></input>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" data-action="click->hello#save">Save</button>
+    </div>
+  </div>
+</div>
+</div>
