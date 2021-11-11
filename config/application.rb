@@ -11,6 +11,9 @@ module Psquare
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    ENV['DATABASE_URL'] = ENV['CLOUDRON_POSTGRESQL_URL'] unless ENV['DATABASE_URL'].present?
+    ENV['REDIS_URL'] = ENV['CLOUDRON_REDIS_URL'] unless ENV['REDIS_URL'].present?
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
