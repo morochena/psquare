@@ -3,11 +3,23 @@
 
 import { application } from "./application"
 
+import ChartController from "./chart_controller.js"
+application.register("chart", ChartController)
+
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
 
 import ProjectController from "./project_controller.js"
 application.register("project", ProjectController)
 
+import ResetFormController from "./reset_form_controller.js"
+application.register("reset-form", ResetFormController)
+
+import ToggleFormController from "./toggle_form_controller.js"
+application.register("toggle-form", ToggleFormController)
+
 import UserController from "./user_controller.js"
 application.register("user", UserController)
+
+import VoteFormController from "./vote_form_controller.js"
+application.register("vote-form", VoteFormController)

@@ -1,22 +1,13 @@
-<%= turbo_stream_from @session.id, :projects %>
-<% 
-Chartkick.options = {
-  height: "400px",
-  width: "400px",
-  colors: ["#b00", "#666"]
-}
-%>
-<div class="wrapper" data-controller="project" data-project-index-value="1">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
+<%= turbo_stream_from @session %>
+<%= turbo_stream_from @session, :projects %>
+<%= turbo_stream_from @session, :scores %>
+<div class="wrapper" data-controller="project chart" data-project-index-value="<%= @current_project.id %>">
   <div id="content">
-    <h1 class="text-center"><%= @session.name %></h1>
-    <%= scatter_chart [[1,2], [2,3]], 
-  xtitle: "Effort", 
-  ytitle: "Impact",
-  min: 0,
-  max: 5,
-  xmin: 0,
-  xmax: 5  
-%>
+    <%= turbo_frame_tag @session do %>
+      <%= render @session %>
+    <% end %>
+    <canvas id="myChart" width="500" height="500"></canvas>
     <hr>
     <%= render 'sessions/current_project_form', current_project: @current_project %>
   </div>
@@ -27,12 +18,11 @@ Chartkick.options = {
         <%= render @projects %>
       <% end %>
     </ul>
-    <%= turbo_frame_tag :project_form do %>
-      <%= render 'projects/form', project: @project %>
-    <% end %>
+    <hr>
+    <%= render 'projects/form', project: @project %>
   </div>
 </div>
-<div id="usernameModal" class="modal" tabindex="-1" role="dialog" data-controller="hello">
+<div id="usernameModal" class="modal" tabindex="-1" role="dialog" data-controller="hello" data-bs-keyboard="false" data-bs-backdrop="static">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PSquare</title>
+    <title>pSquare</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,7 +12,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" data-controller="user">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">PSquare</a>
+        <a class="navbar-brand" href="#">pSquare</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -28,5 +28,7 @@
       </div>
     </nav>
     <%= yield %>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   </body>
 </html>

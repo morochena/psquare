@@ -14,8 +14,20 @@
  *= require_self
  */
 
+html,
+body {
+  height: 100%;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .wrapper {
   display: flex;
+  flex: 1;
 }
 
 #content {
@@ -30,9 +42,8 @@
   flex: 1;
   flex-direction: column;
   padding: 30px;
-  align-items: center;
-  justify-content: center;
-  border-left: 1px solid #ccc;
+  align-items: stretch;
+  justify-content: flex-start;
   overflow-wrap: anywhere;
 }
 

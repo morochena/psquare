@@ -1,0 +1,6 @@
+<div data-controller="toggle-form" id="<%= dom_id(session) %>">
+  <h1 class="text-center" data-toggle-form-target="text"><%= session.name %> <ion-icon size="small" name="create-outline" data-action="click->toggle-form#toggleForm"></ion-icon></h1>
+  <%= form_with(model: session, data: { toggle_form_target: "form" }, html: { style: 'display: none;'} ) do |f| %>
+    <%= f.text_field :name %><%= f.submit %>
+  <% end %>
+</div>

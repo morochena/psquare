@@ -1,2 +1,23 @@
-
-<li class="list-group-item" id="<%= "project-#{project.id}" %>"><%= project.name %></li>
+<li 
+  class="list-group-item dropdown" 
+  id="<%= "project_#{project.id}" %>" 
+  data-action="click->project#select"
+  data-chart-target="projects"
+  data-project-id-param="<%= project.id %>"
+  data-project-name-param="<%= project.name %>"
+  data-project-voters-param="<%= project.voter_uuids %>"
+  data-project-avg-effort-score-param="<%= project.avg_effort_score %>"
+  data-project-avg-impact-score-param="<%= project.avg_impact_score %>"
+  data-controller="toggle-form"
+  >
+  <button data-toggle-form-target="text" class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    <%= project.name %>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" data-action="click->toggle-form#toggleForm" href="#">Edit</a></li>
+    <li><%= link_to 'Delete', session_project_path(project.session, project), class: 'dropdown-item', data: {:confirm => 'Are you sure?'}, :method => :delete %></li>
+  </ul>
+  <%= form_with(model: project, data: { toggle_form_target: "form" }, html: { style: 'display: none;'} ) do |f| %>
+    <%= f.text_field :name %><%= f.submit %>
+  <% end %>
+</li>

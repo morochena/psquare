@@ -1,9 +1,9 @@
-
-
-<h1>Hello</h1>
-
-
-<%= form_with(:url => '/sessions', :method => :post) do |f| %>
-  <%= f.submit %>
+<div class="home-container">
+  <h1>PSquare</h1>
+  <p>
+    pSquare is a simple, fast, and powerful priorization method for projects or stories.
+  </p>
+  <%= form_with(:url => '/sessions', :method => :post) do |f| %>
+    <%= f.submit 'Create a Session', class: 'btn btn-primary' %>
   <% end %>
-
+</div>

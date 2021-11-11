@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :projects
   end
 
-  resources :projects, only: [:show] do
+  resources :projects, only: [:show, :update] do
     resources :scores, only: [:create]
   end
   

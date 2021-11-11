@@ -7,8 +7,18 @@ class SessionsController < ApplicationController
   def show
     @session = Session.find_by(slug: params[:id])
     @project = Project.new(session: @session)
-    @projects = @session.projects
+    @projects = @session.projects.includes(:scores)
 
-    @current_project = @projects.first || @session.projects.create(name: "First Project")
+    @current_project = @projects.first || 
+                       @session.projects.create(name: "First Project")
+  end
+
+  def update
+    @session = Session.find(params[:id])
+    @session.update!(session_params)
+  end
+
+  def session_params
+    params.require(:session).permit(:name)
   end
 end
