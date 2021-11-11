@@ -1,24 +1,17 @@
-# README
+# pSquare
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+pSquare is a simple, fast, and powerful priorization method for projects or stories.
 
-Things you may want to cover:
+[https://psquare.orochena.net](https://psquare.orochena.net)
 
-* Ruby version
+## Deploy to Cloudron
 
-* System dependencies
+- `$ npm install -g cloudron`
+- `$ cloudron login my.example.com`
+- `$ cloudron install --image morochena/psquare:1.0.5`
+- `$ cloudron env set --app psquare.example.com RAILS_ENV=production RAIlS_SERVE_STATIC_ASSETS=true
 
-* Configuration
+## Development
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- `$ bundle install`
+- `$ rails s`
