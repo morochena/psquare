@@ -5,7 +5,7 @@ set -e
 rm -f /run/enki/tmp/pids/server.pid
 
 # Since we're sort of using the asset pipeline, compile assets
-bundle exec rails assets:precompile
+# bundle exec rails assets:precompile
 
 # Migrate database if necessary 
 bundle exec rails db:migrate
