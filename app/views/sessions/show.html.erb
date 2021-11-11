@@ -22,7 +22,7 @@
     <%= render 'projects/form', project: @project %>
   </div>
 </div>
-<div id="usernameModal" class="modal" tabindex="-1" role="dialog" data-controller="hello" data-bs-keyboard="false" data-bs-backdrop="static">
+<div id="usernameModal" class="modal" tabindex="-1" role="dialog" data-controller="user-set" data-bs-keyboard="false" data-bs-backdrop="static">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -30,11 +30,11 @@
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <input class="form-control" data-hello-target="username"></input>
+          <input class="form-control" data-user-set-target="username"></input>
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-primary" data-action="click->hello#save">Save</button>
+      <button type="button" class="btn btn-primary" data-action="click->user-set#save">Save</button>
     </div>
   </div>
 </div>
