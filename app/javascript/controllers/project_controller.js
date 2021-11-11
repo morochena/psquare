@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static values = { index: Number }
+  static values = { index: Number, }
   name = ""
 
   initialize() {
@@ -24,6 +24,21 @@ export default class extends Controller {
     const { id, name } = event.params
     this.indexValue = id;
     this.name = name;
+
+    const uuid = localStorage.getItem("userid")
+    const votesHash = JSON.parse(document.getElementById(`project_${id}`).dataset.projectVotesValue)
+
+    let effortSelect = document.getElementById("score_effort_score");
+    let impactSelect = document.getElementById("score_impact_score");
+
+    if (votesHash[uuid]) {
+      effortSelect.value = votesHash[uuid]["effort_score"];
+      impactSelect.value = votesHash[uuid]["impact_score"];
+    } else {
+      effortSelect.value = null;
+      impactSelect.value = null;
+    }
+
     this.setCurrentProjectFormName();
     this.highlightProject();
   }

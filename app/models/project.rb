@@ -16,6 +16,13 @@ class Project < ApplicationRecord
     scores.map { |score| score.uuid }
   end
 
+  def votes_by_voter
+    scores.reduce({}) do |hash, score|
+      hash[score.uuid] = { name: score.username, effort_score: score.effort_score, impact_score: score.impact_score }
+      hash
+    end.to_json
+  end
+
   after_create_commit { broadcast_append_to self.session, :projects }
   after_update_commit { broadcast_replace_to self.session, :projects }
   after_destroy_commit { broadcast_remove_to self.session, :projects }
