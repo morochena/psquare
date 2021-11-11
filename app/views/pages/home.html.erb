@@ -1,9 +1,28 @@
 <div class="home-container">
   <h1>PSquare</h1>
-  <p>
-    pSquare is a simple, fast, and powerful priorization method for projects or stories.
-  </p>
-  <%= form_with(:url => '/sessions', :method => :post) do |f| %>
-    <%= f.submit 'Create a Session', class: 'btn btn-primary' %>
-  <% end %>
+  <div class="container">
+    <p class="lead" style="max-width: 600px; margin: auto;">
+      pSquare is a simple, fast, and powerful priorization method for projects or stories. It allows you to rank projects by effort and impact, and then prioritize them in a way that is easy to understand.
+    </p>
+    <div class="d-flex justify-content-center mt-5">
+      <%= form_with(:url => '/sessions', :method => :post) do |f| %>
+        <div class="d-flex justify-content-center" style="max-width: 500px;">
+          <%= f.text_field :name, placeholder: 'Session Name', required: true, class: 'form-control' %>
+          <%= f.submit 'Create a Session', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+    <div class="mt-5 justify-content-center align-items-center">
+      <div class="d-flex justify-content-center">
+        <h3>How to use</h3>
+      </div>
+      <article class="d-flex flex-column align-self-center" style="max-width: 600px; margin: auto;">
+        <p>1. To create a session, simply enter a name and click the button above.</p>
+        <p>2. You can then add projects/stories to your session on the right side of the page.</p>
+        <p>3. Once you've selected a project by clicking on it, you can vote on it based on effort and impact.</p>
+        <p>4. Once voted on, the project will be plotted on the chart.</p>
+        <p>Bonus: It's collaborative! Share the session URL with coworkers or friends, and as they vote on projects the average score across all votes will be plotted in real-time.</p>
+      </div>
+    </div>
+  </div>
 </div>
