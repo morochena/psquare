@@ -1,0 +1,20 @@
+{
+  "id": "com.morochena.psquare",
+  "title": "pSquare",
+  "author": "Marcus Orochena <marcus@orochena.net>",
+  "description": "pSquare is a simple, fast, and powerful priorization method for projects or stories.",
+  "tagline": "A great beginning",
+  "version": "1.0.0",
+  "healthCheckPath": "/",
+  "httpPort": 3000,
+  "memoryLimit": 524288000,
+  "addons": {
+    "postgresql": {},
+    "redis": {}
+  },
+  "manifestVersion": 2,
+  "website": "https://www.orochena.net",
+  "contactEmail": "marcus@orochena.net",
+  "tags": [ "project", "project prioritization" ],
+  "mediaLinks": [ "https://images.rapgenius.com/fd0175ef780e2feefb30055be9f2e022.520x343x1.jpg" ]
+}
