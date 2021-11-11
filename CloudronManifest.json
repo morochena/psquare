@@ -7,7 +7,7 @@
   "version": "1.0.0",
   "healthCheckPath": "/",
   "httpPort": 3000,
-  "memoryLimit": 524288000,
+  "memoryLimit": 1048576000,
   "addons": {
     "postgresql": {},
     "redis": {}
