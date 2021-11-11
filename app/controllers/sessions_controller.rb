@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def create
-    @session = Session.create!(:name => 'New Session')
+    @session = Session.create!(session_params)
     redirect_to session_path(@session.slug)
   end
 

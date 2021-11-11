@@ -5,7 +5,7 @@
       pSquare is a simple, fast, and powerful priorization method for projects or stories. It allows you to rank projects by effort and impact, and then prioritize them in a way that is easy to understand.
     </p>
     <div class="d-flex justify-content-center mt-5">
-      <%= form_with(:url => '/sessions', :method => :post) do |f| %>
+      <%= form_with(model: Session.new, :method => :post) do |f| %>
         <div class="d-flex justify-content-center" style="max-width: 500px;">
           <%= f.text_field :name, placeholder: 'Session Name', required: true, class: 'form-control' %>
           <%= f.submit 'Create a Session', class: 'btn btn-primary' %>
