@@ -1,17 +1,22 @@
-<h3 id="current-project-name"><%= current_project.name %></h3>
-<%= form_with(model: [@current_project, Score.new], id: 'vote-form', data: { controller: 'vote-form', action: "submit->vote-form#prepareParams"}) do |form| %>
-  <div class="row">
-    <div class="col inputer">
-      <label for="effortSelect">Effort</label>
-      <%= form.select(:effort_score, [1,2,3,4,5], {}, class: "form-control") %>
+<div data-project-target="vform" class="flex-column align-items-center" style="display: none;">
+  <h3 id="current-project-name" style="max-width: 500px; overflow-wrap: anywhere;"></h3>
+  <%= form_with(model: [Project.new(id: 1), Score.new], id: 'vote-form', data: { 
+  controller: 'vote-form', 
+  action: "submit->vote-form#prepareParams submit->project#selectNext",
+  }) do |form| %>
+    <div class="row">
+      <div class="col inputer">
+        <label for="effortSelect">Effort</label>
+        <%= form.select(:effort_score, [1,2,3,4,5], {}, class: "form-control") %>
+      </div>
+      <div class="col inputer">
+        <label for="impactSelect">Impact</label>
+        <%= form.select(:impact_score, [1,2,3,4,5], {}, class: "form-control") %>
+      </div>
     </div>
-    <div class="col inputer">
-      <label for="impactSelect">Impact</label>
-      <%= form.select(:impact_score, [1,2,3,4,5], {}, class: "form-control") %>
+    <br />
+    <div class="row">
+      <%= form.submit("Vote", class: "btn btn-primary", 'data-vote-form-target': 'button') %>
     </div>
-  </div>
-  <br />
-  <div class="row">
-    <%= form.submit("Vote", class: "btn btn-primary", 'data-vote-form-target': 'button') %>
-  </div>
-<% end %>
+  <% end %>
+</div>

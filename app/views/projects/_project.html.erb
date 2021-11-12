@@ -3,6 +3,7 @@
   id="<%= "project_#{project.id}" %>" 
   data-action="click->project#select"
   data-chart-target="projects"
+  data-project-target="projects"
   data-project-id-param="<%= project.id %>"
   data-project-name-param="<%= project.name %>"
   data-project-voters-param="<%= project.voter_uuids %>"
@@ -11,14 +12,17 @@
   data-project-avg-impact-score-param="<%= project.avg_impact_score %>"
   data-controller="toggle-form"
   >
-  <button data-toggle-form-target="text" class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="white-space:normal;">
+  <div class="d-flex justify-content-between align-items-center">
     <%= project.name %>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" data-action="click->toggle-form#toggleForm" href="#">Edit</a></li>
-    <li><%= link_to 'Delete', session_project_path(project.session, project), class: 'dropdown-item', data: {:confirm => 'Are you sure?'}, :method => :delete %></li>
-  </ul>
+    <button data-toggle-form-target="text" class="btn px-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      <ion-icon size="small" name="create-outline"></ion-icon>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" data-action="click->toggle-form#toggleForm" href="#">Edit</a></li>
+      <li><%= link_to 'Delete', session_project_path(project.session, project), class: 'dropdown-item', data: {:confirm => 'Are you sure?'}, :method => :delete %></li>
+    </ul>
+  </div>
   <%= form_with(model: project, data: { toggle_form_target: "form" }, html: { style: 'display: none;'} ) do |f| %>
-    <%= f.text_field :name %><%= f.submit %>
+    <%= f.text_field :name, required: true %><%= f.submit class: "btn btn-secondary btn-sm mt-1" %>
   <% end %>
 </li>

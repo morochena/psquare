@@ -9,8 +9,7 @@ class SessionsController < ApplicationController
     @project = Project.new(session: @session)
     @projects = @session.projects.includes(:scores)
 
-    @current_project = @projects.first || 
-                       @session.projects.create(name: "First Project")
+    @current_project = @projects.first
   end
 
   def update

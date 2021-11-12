@@ -2,7 +2,7 @@
 <%= turbo_stream_from @session %>
 <%= turbo_stream_from @session, :projects %>
 <%= turbo_stream_from @session, :scores %>
-<div class="wrapper" data-controller="project chart" data-project-index-value="<%= @current_project.id %>">
+<div class="wrapper" data-controller="project chart" data-project-index-value="0">
   <div id="content">
     <%= turbo_frame_tag @session do %>
       <%= render @session %>
