@@ -22,29 +22,33 @@ export default class extends Controller {
   }
 
   selectNext() {
-    const currentIndex = this.projectsTargets.findIndex(project => parseInt(project.dataset.projectIdParam) === this.indexValue)
-    if (this.projectsTargets[currentIndex + 1]) {
-      const selectedProject = this.projectsTargets[currentIndex + 1]
-      this.indexValue = parseInt(selectedProject.dataset.projectIdParam);
-      this.name = selectedProject.dataset.projectNameParam;
+    setTimeout(() => {
 
-      const uuid = localStorage.getItem("userid")
-      const votesHash = JSON.parse(document.getElementById(`project_${this.indexValue}`).dataset.projectVotesValue)
 
-      let effortSelect = document.getElementById("score_effort_score");
-      let impactSelect = document.getElementById("score_impact_score");
+      const currentIndex = this.projectsTargets.findIndex(project => parseInt(project.dataset.projectIdParam) === this.indexValue)
+      if (this.projectsTargets[currentIndex + 1]) {
+        const selectedProject = this.projectsTargets[currentIndex + 1]
+        this.indexValue = parseInt(selectedProject.dataset.projectIdParam);
+        this.name = selectedProject.dataset.projectNameParam;
 
-      if (votesHash[uuid]) {
-        effortSelect.value = votesHash[uuid]["effort_score"];
-        impactSelect.value = votesHash[uuid]["impact_score"];
-      } else {
-        effortSelect.value = null;
-        impactSelect.value = null;
+        const uuid = localStorage.getItem("userid")
+        const votesHash = JSON.parse(document.getElementById(`project_${this.indexValue}`).dataset.projectVotesValue)
+
+        let effortSelect = document.getElementById("score_effort_score");
+        let impactSelect = document.getElementById("score_impact_score");
+
+        if (votesHash[uuid]) {
+          effortSelect.value = votesHash[uuid]["effort_score"];
+          impactSelect.value = votesHash[uuid]["impact_score"];
+        } else {
+          effortSelect.value = null;
+          impactSelect.value = null;
+        }
       }
-    }
 
-    this.setCurrentProjectFormName();
-    setTimeout(() => this.highlightProject(), 200);
+      this.setCurrentProjectFormName();
+      this.highlightProject();
+    }, 300)
 
   }
 

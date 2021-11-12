@@ -6,9 +6,9 @@ class ScoresController < ApplicationController
     @score = @project.scores.find_by(uuid: score_params[:uuid])
     
     if @score
-      @score.update(score_params)
+      @score.update!(score_params)
     else
-      @score = @project.scores.create(score_params)
+      @score = @project.scores.create!(score_params)
     end
   end
 
