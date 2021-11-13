@@ -2,7 +2,7 @@
 set -e
 
 # Remove a potentially pre-existing server.pid for Rails.
-rm -f /run/enki/tmp/pids/server.pid
+rm -f /run/app/tmp/pids/server.pid
 
 # Since we're sort of using the asset pipeline, compile assets
 # bundle exec rails assets:precompile

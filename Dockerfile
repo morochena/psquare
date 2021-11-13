@@ -9,11 +9,11 @@ RUN yarn config set cache-folder /tmp/yarn
 
 RUN bundle config --global frozen 1
 
-WORKDIR /run/psquare
-COPY Gemfile /run/psquare/Gemfile
-COPY Gemfile.lock /run/psquare/Gemfile.lock
+WORKDIR /run/app
+COPY Gemfile /run/app/Gemfile
+COPY Gemfile.lock /run/app/Gemfile.lock
 RUN bundle install
-COPY . /run/psquare
+COPY . /run/app
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
