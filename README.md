@@ -9,7 +9,7 @@ pSquare is a simple, fast, and powerful priorization method for projects or stor
 - `$ npm install -g cloudron`
 - `$ cloudron login my.example.com`
 - `$ cloudron install --image morochena/psquare:1.0.5`
-- `$ cloudron env set --app psquare.example.com RAILS_ENV=production RAIlS_SERVE_STATIC_ASSETS=true`
+- `$ cloudron env set --app psquare.example.com RAILS_ENV=production RAIlS_SERVE_STATIC_ASSETS=true RAILS_LOG_TO_STDOUT=true`
 
 ## Development
 
