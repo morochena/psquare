@@ -71,9 +71,12 @@ export default class extends Controller {
               display: true,
               text: 'Impact'
             },
-            min: 0,
-            max: 5,
+            min: -0.25,
+            max: 5.25,
             grid: {
+              display: false
+            },
+            ticks: {
               display: false
             }
           },
@@ -82,9 +85,12 @@ export default class extends Controller {
               display: true,
               text: 'Effort'
             },
-            min: 0,
-            max: 5,
+            min: -0.25,
+            max: 5.25,
             grid: {
+              display: false
+            },
+            ticks: {
               display: false
             }
           },
