@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def show
     @session = Session.find_by(slug: params[:id])
     @project = Project.new(session: @session)
-    @projects = @session.projects.includes(:scores)
+    @projects = @session.projects.order(created_at: :asc).includes(:scores)
 
     @current_project = @projects.first
   end
