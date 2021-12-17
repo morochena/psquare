@@ -71,6 +71,8 @@ export default class extends Controller {
     this.name = name;
     this.vformTarget.style.display = "flex"
 
+    const selectedItem = localStorage.setItem("selected-project", id);
+
     const uuid = localStorage.getItem("userid")
     const votesHash = JSON.parse(document.getElementById(`project_${id}`).dataset.projectVotesValue)
 

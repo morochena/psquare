@@ -12,6 +12,9 @@ application.register("project", ProjectController)
 import ResetFormController from "./reset_form_controller.js"
 application.register("reset-form", ResetFormController)
 
+import SingleProjectController from "./single_project_controller.js"
+application.register("single-project", SingleProjectController)
+
 import ToggleFormController from "./toggle_form_controller.js"
 application.register("toggle-form", ToggleFormController)
 
