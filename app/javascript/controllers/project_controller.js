@@ -7,6 +7,18 @@ export default class extends Controller {
   name = ""
 
   initialize() {
+    this.highlightVotedProjects();
+  }
+
+  highlightVotedProjects() {
+    const uuid = localStorage.getItem("userid")
+
+    document.querySelectorAll(".list-group-item").forEach(item => {
+      const votesHash = JSON.parse(item.dataset.projectVotesValue)
+      if (votesHash[uuid]) {
+        item.classList.add("list-group-item-success")
+      }
+    })
   }
 
   setCurrentProjectFormName() {
@@ -48,6 +60,7 @@ export default class extends Controller {
 
       this.setCurrentProjectFormName();
       this.highlightProject();
+      this.highlightVotedProjects();
     }, 300)
 
   }
@@ -74,6 +87,7 @@ export default class extends Controller {
 
     this.setCurrentProjectFormName();
     this.highlightProject();
+    this.highlightVotedProjects();
   }
 }
 

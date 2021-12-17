@@ -1,7 +1,6 @@
 class ScoresController < ApplicationController
  
   def create
-    puts params
     @project = Project.find(params[:project_id])
     @score = @project.scores.find_by(uuid: score_params[:uuid])
     
