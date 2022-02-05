@@ -8,7 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "chartkick/chart.js"
-import 'bootstrap';
+import "flowbite"
 
 import 'controllers'
 import "@hotwired/turbo-rails"

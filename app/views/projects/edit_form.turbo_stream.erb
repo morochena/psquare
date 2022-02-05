@@ -1,12 +1,15 @@
 <%= turbo_stream.update "edit-project-form" do %>
-  <%= form_with(model: @project, data: { toggle_form_target: "form" }, html: { class: "space-y-6 px-6 lg:px-8 pb-4 sm:pb-6 xl:pb-8" } ) do |f| %>
+  <%= form_with(model: @project, data: { toggle_form_target: "form", action: "submit->edit-project#closeModal" }, html: { class: "space-y-6 px-6 lg:px-8 pb-4 sm:pb-6 xl:pb-8" } ) do |f| %>
     <h3 class="text-xl font-medium text-gray-900 dark:text-white">Edit Project</h3>
     <div class="form-control">
       <%= f.label :name, class: "text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300" %>
       <%= f.text_field :name, required: true, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" %>
     </div>
     <div class="flex">
-      <%= f.submit class: "w-full text-white mx-2 bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800" %>
+      <%= f.submit "Save", class: "w-full text-white mx-2 bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800" %>
     </div>
   <% end %>
+  <div class="flex flex-col items-center pb-6">
+    <%= link_to 'Delete', session_project_path(@project.session, @project), class: "text-red-700 hover:underline dark:text-red-500", data: {:confirm => 'Are you sure?', action: "click->edit-project#closeModal"}, :method => :delete %>
+  </div>
 <% end %>
