@@ -14,39 +14,10 @@
  *= require_self
  */
 
-/* html,
-body {
-  height: 100%;
-}
+ .active {
+   background: rgba(20, 184, 166, 0.3) !important;
+ }
 
-.home-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+ .voted {
+  background: rgba(20, 184, 166, 0.1);
 }
-
-.wrapper {
-  display: flex;
-  flex: 1;
-}
-
-#content {
-  display: flex;
-  flex: 4;
-  flex-direction: column;
-  align-items: center;
-}
-
-#sidebar {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  padding: 30px;
-  align-items: stretch;
-  justify-content: flex-start;
-  overflow-wrap: anywhere;
-}
-
-.inputer {
-  min-width: 100px;
-} */

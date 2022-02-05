@@ -15,7 +15,7 @@ export default class extends Controller {
     // user has voted on item
     const votesHash = JSON.parse(this.element.dataset.projectVotesValue)
     if (votesHash[uuid]) {
-      this.element.classList.add("list-group-item-success")
+      this.element.classList.add("voted")
     }
   }
 }

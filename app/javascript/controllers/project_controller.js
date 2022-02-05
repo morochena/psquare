@@ -8,15 +8,21 @@ export default class extends Controller {
 
   initialize() {
     this.highlightVotedProjects();
+
+    if (document.querySelectorAll(".p-list-item").length > 0) {
+      setTimeout(() => {
+        document.querySelectorAll(".p-list-item")[0].click();
+      }, 300);
+    }
   }
 
   highlightVotedProjects() {
     const uuid = localStorage.getItem("userid")
 
-    document.querySelectorAll(".list-group-item").forEach(item => {
+    document.querySelectorAll(".p-list-item").forEach(item => {
       const votesHash = JSON.parse(item.dataset.projectVotesValue)
       if (votesHash[uuid]) {
-        item.classList.add("bg-gray-100")
+        item.classList.add("voted")
       }
     })
   }
@@ -27,7 +33,7 @@ export default class extends Controller {
   }
 
   highlightProject() {
-    document.querySelectorAll(".list-group-item").forEach(item => {
+    document.querySelectorAll(".p-list-item").forEach(item => {
       item.classList.remove("active")
     })
     document.getElementById(`project_${this.indexValue}`).classList.add('active')

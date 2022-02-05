@@ -1,5 +1,5 @@
 <li 
-  class="list-group-item dropdown" 
+  class="p-list-item rounded-md" 
   id="<%= "project_#{project.id}" %>" 
   data-action="click->project#select"
   data-chart-target="projects"
@@ -13,7 +13,7 @@
   data-project-avg-impact-score-param="<%= project.avg_impact_score %>"
   data-controller="toggle-form single-project"
   >
-  <div class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
+  <div class="text-gray-600 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
     <span class="truncate"> <%= project.name %></span>
     <button data-toggle-form-target="text" class="bg-gray-100 text-gray-600 group-hover:bg-gray-200 ml-auto inline-block py-0.5 px-3 text-xs rounded-full" type="button" data-edit-project-id-param="<%= project.id %>" data-action="click->edit-project#selectProject">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
