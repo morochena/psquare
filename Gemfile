@@ -60,3 +60,5 @@ gem "hotwire-rails", "~> 0.1.3"
 gem "chartkick", "~> 4.1"
 
 gem "pg", "~> 1.2"
+
+gem "tailwindcss-rails", "~> 2.0"

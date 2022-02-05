@@ -14,4 +14,4 @@ pSquare is a simple, fast, and powerful priorization method for projects or stor
 ## Development
 
 - `$ bundle install`
-- `$ rails s`
+- `$ bin/dev

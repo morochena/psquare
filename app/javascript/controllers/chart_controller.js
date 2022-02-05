@@ -31,7 +31,7 @@ export default class extends Controller {
       datasets: [{
         label: 'Average Score',
         data: dataSet,
-        backgroundColor: 'rgb(132, 99, 255)',
+        backgroundColor: 'rgb(71,85,105)',
       }],
     };
 
@@ -97,10 +97,10 @@ export default class extends Controller {
         },
         plugins: {
           quadrants: {
-            topLeft: 'rgba(75, 192, 192, 0.5)',
-            topRight: 'rgba(255, 205, 86, 0.5)',
-            bottomRight: 'rgba(255, 99, 132, 0.5)',
-            bottomLeft: 'rgba(255, 205, 86, 0.5)',
+            topLeft: 'rgba(20, 184, 166, 0.5)',
+            topRight: 'rgba(253, 224, 71, 0.5)',
+            bottomRight: 'rgba(248, 113, 113, 0.5) ',
+            bottomLeft: 'rgba(253, 224, 71, 0.5)',
           },
           tooltip: {
             callbacks: {
