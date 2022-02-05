@@ -1,6 +1,7 @@
-<div data-controller="toggle-form" id="<%= dom_id(session) %>">
+<div data-controller="toggle-form" id="<%= dom_id(session) %>" class="flex">
   <h1 class="text-center" data-toggle-form-target="text"><%= session.name %> <ion-icon size="small" name="create-outline" data-action="click->toggle-form#toggleForm"></ion-icon></h1>
-  <%= form_with(model: session, data: { toggle_form_target: "form" }, html: { style: 'display: none;'} ) do |f| %>
-    <%= f.text_field :name %><%= f.submit %>
+  <%= form_with(model: session, data: { toggle_form_target: "form" }, html: { style: 'display: none;', class: 'ml-4'} ) do |f| %>
+    <%= f.text_field :name, class: "shadow-sm focus:ring-teal-500 focus:border-teal-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+    <%= f.submit 'Update Session', class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500" %>
   <% end %>
 </div>

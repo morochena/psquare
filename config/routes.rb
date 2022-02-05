@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :projects, only: [:show, :update] do
+    get :edit_form, on: :member
     resources :scores, only: [:create]
   end
   

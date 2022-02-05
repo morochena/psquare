@@ -9,6 +9,13 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def edit_form
+    @project = Project.find(params[:id])
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
+
   def update
     @project = Project.find(params[:id])
     @project.update!(project_params)

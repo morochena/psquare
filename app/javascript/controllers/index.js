@@ -6,6 +6,9 @@ import { application } from "./application"
 import ChartController from "./chart_controller.js"
 application.register("chart", ChartController)
 
+import EditProjectController from "./edit_project_controller.js"
+application.register("edit-project", EditProjectController)
+
 import ProjectController from "./project_controller.js"
 application.register("project", ProjectController)
 

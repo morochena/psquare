@@ -16,7 +16,7 @@ export default class extends Controller {
     document.querySelectorAll(".list-group-item").forEach(item => {
       const votesHash = JSON.parse(item.dataset.projectVotesValue)
       if (votesHash[uuid]) {
-        item.classList.add("list-group-item-success")
+        item.classList.add("bg-gray-100")
       }
     })
   }
@@ -35,8 +35,6 @@ export default class extends Controller {
 
   selectNext() {
     setTimeout(() => {
-
-
       const currentIndex = this.projectsTargets.findIndex(project => parseInt(project.dataset.projectIdParam) === this.indexValue)
       if (this.projectsTargets[currentIndex + 1]) {
         const selectedProject = this.projectsTargets[currentIndex + 1]

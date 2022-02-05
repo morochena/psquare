@@ -9,7 +9,7 @@ export default class extends Controller {
 
   toggleForm(event) {
     event.preventDefault()
-    this.formTarget.style.display = "block"
+    this.formTarget.style.display = "flex"
   }
 
 }

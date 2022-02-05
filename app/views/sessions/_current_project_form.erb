@@ -1,22 +1,22 @@
-<div data-project-target="vform" class="flex-column align-items-center" style="display: none;">
-  <h3 id="current-project-name" style="max-width: 500px; overflow-wrap: anywhere;"></h3>
+<div data-project-target="vform" class="flex flex-col	items-center" style="display: none;">
+  <h3 id="current-project-name" style="max-width: 500px;" class="pt-4 pb-2 truncate text-xl font-bold"></h3>
   <%= form_with(model: [Project.new(id: 1), Score.new], id: 'vote-form', data: { 
   controller: 'vote-form', 
   action: "submit->vote-form#prepareParams submit->project#selectNext",
   }) do |form| %>
-    <div class="row">
-      <div class="col inputer">
-        <label for="effortSelect">Effort</label>
-        <%= form.select(:effort_score, [1,2,3,4,5], {}, required: true, class: "form-control") %>
+    <div class="flex">
+      <div class="mx-2">
+        <label for="effortSelect" class="block text-sm font-medium text-gray-700">Effort</label>
+        <%= form.select(:effort_score, [1,2,3,4,5], {}, required: true, class: "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md") %>
       </div>
-      <div class="col inputer">
-        <label for="impactSelect">Impact</label>
-        <%= form.select(:impact_score, [1,2,3,4,5], {}, required: true, class: "form-control") %>
+      <div class="mx-2">
+        <label for="impactSelect" class="block text-sm font-medium text-gray-700">Impact</label>
+        <%= form.select(:impact_score, [1,2,3,4,5], {}, required: true, class: "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md") %>
       </div>
     </div>
     <br />
-    <div class="row">
-      <%= form.submit("Vote", class: "btn btn-primary", 'data-vote-form-target': 'button') %>
+    <div class="flex flex-col items-center">
+      <%= form.submit("Vote", class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500", 'data-vote-form-target': 'button') %>
     </div>
   <% end %>
 </div>

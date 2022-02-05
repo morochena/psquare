@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
   def create
     @session = Session.create!(session_params)
+    @project = Project.create!(session: @session, name: "First Project")
+    
     redirect_to session_path(@session.slug)
   end
 

@@ -2,40 +2,58 @@
 <%= turbo_stream_from @session %>
 <%= turbo_stream_from @session, :projects %>
 <%= turbo_stream_from @session, :scores %>
-<div class="wrapper" data-controller="project chart" data-project-index-value="0">
-  <div id="content">
-    <%= turbo_frame_tag @session do %>
-      <%= render @session %>
-    <% end %>
-    <canvas id="myChart" width="500" height="500"></canvas>
-    <hr>
-    <%= render 'sessions/current_project_form', current_project: @current_project %>
-  </div>
-  <div id="sidebar">
-    <h4>Projects</h4>
-    <ul class="list-group">
-      <%= turbo_frame_tag :projects do %>
-        <%= render @projects %>
-      <% end %>
-    </ul>
-    <hr>
-    <%= render 'projects/form', project: @project %>
-  </div>
-</div>
-<div id="usernameModal" class="modal" tabindex="-1" role="dialog" data-controller="user-set" data-bs-keyboard="false" data-bs-backdrop="static">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Set Username</h5>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <input class="form-control" data-user-set-target="username"></input>
+<main class="py-10 w-full" data-controller="project chart">
+  <!-- Page header -->
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl lg:px-8">
+    <div class="flex items-center space-x-5">
+      <div>
+        <h1 class="text-2xl font-bold text-gray-900">
+          <%= turbo_frame_tag @session do %>
+            <%= render @session %>
+          <% end %>
+        </h1>
       </div>
     </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-primary" data-action="click->user-set#save">Save</button>
+    <div class="mt-6 flex flex-col-reverse justify-stretch space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-x-reverse sm:space-y-0 sm:space-x-3 md:mt-0 md:flex-row md:space-x-3">
     </div>
   </div>
-</div>
-</div>
+  <div class="mt-8 max-w-3xl mx-auto grid grid-cols-1 gap-6 sm:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3">
+    <div class="space-y-6 lg:col-start-1 lg:col-span-2">
+      <section aria-labelledby="applicant-information-title">
+        <div class="bg-white shadow sm:rounded-lg px-4 py-5">
+          <canvas id="myChart" width="500" height="500" class="mx-auto"></canvas>
+          <%= render 'sessions/current_project_form', current_project: @current_project %>
+        </div>
+      </section>
+    </div>
+    <section aria-labelledby="timeline-title" class="lg:col-start-3 lg:col-span-1">
+      <div class="bg-white px-4 py-5 shadow sm:rounded-lg sm:px-6">
+        <h2 id="timeline-title" class="text-lg font-medium text-gray-900">Projects</h2>
+        <div id="sidebar">
+          <ul class="list-group">
+            <%= turbo_frame_tag :projects do %>
+              <%= render @projects %>
+            <% end %>
+          </ul>
+          <hr>
+          <%= render 'projects/form', project: @project %>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Main modal -->
+  <div id="project-edit-modal" aria-hidden="true" style="background: rgba(0,0,0,0.6)" class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
+    <div class="relative w-full max-w-md px-4 h-full md:h-auto">
+      <!-- Modal content -->
+      <div class="bg-white rounded-lg shadow relative dark:bg-gray-700">
+        <div class="flex justify-end p-2">
+          <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="project-edit-modal">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+        <div id="edit-project-form"></div>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.bundle.js"></script>

@@ -105,7 +105,7 @@ export default class extends Controller {
           tooltip: {
             callbacks: {
               label: function (context) {
-                return context.raw.label;
+                return `${context.raw.label}: (Effort: ${context.parsed.x}, Impact: ${context.parsed.y})`;
               }
             }
           }

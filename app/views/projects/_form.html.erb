@@ -9,11 +9,11 @@
       </ul>
     </div>
   <% end %>
-  <div class="form-group">
-    <%= form.text_field :name, class: 'form-control', placeholder: 'New Project', required: true %>
+  <div class="form-group mt-4">
+    <%= form.text_field :name, class: "shadow-sm focus:ring-teal-500 focus:border-teal-500 block w-full sm:text-sm border-gray-300 rounded-md", placeholder: 'New Project', required: true %>
   </div>
 </br>
 <div class="actions">
-  <%= form.submit class: 'btn btn-primary', 'data-reset-form-target': 'button' %>
+  <%= form.submit class: "inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500", 'data-reset-form-target': 'button' %>
 </div>
 <% end %>
