@@ -4,7 +4,7 @@
   "author": "Marcus Orochena <marcus@orochena.net>",
   "description": "pSquare is a simple, fast, and powerful priorization method for projects or stories. It allows you to rank projects by effort and impact, and then prioritize them in a way that is easy to understand.",
   "tagline": "A great beginning",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "healthCheckPath": "/",
   "httpPort": 3000,
   "memoryLimit": 1048576000,

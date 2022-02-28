@@ -55,6 +55,17 @@ export default class extends Controller {
       }
     };
 
+    const truncate = (value) => {
+      if (value.length > 45) {
+        return value.substring(0, 45) + '...';
+      }
+      return value;
+    };
+
+    const toFixedIfNecessary = (value, dp) => {
+      return +parseFloat(value).toFixed(dp);
+    }
+
     const config = {
       type: 'scatter',
       data: data,
@@ -105,7 +116,7 @@ export default class extends Controller {
           tooltip: {
             callbacks: {
               label: function (context) {
-                return `${context.raw.label}: (Effort: ${context.parsed.x}, Impact: ${context.parsed.y})`;
+                return `${truncate(context.raw.label)}: (Effort: ${toFixedIfNecessary(context.parsed.x, 2)}, Impact: ${toFixedIfNecessary(context.parsed.y, 2)})`;
               }
             }
           }
